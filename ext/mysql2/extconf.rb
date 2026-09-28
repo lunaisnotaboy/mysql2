@@ -49,7 +49,7 @@ elsif mc = (with_config('mysql-config') || Dir[GLOB].first)
   # If the user has provided a --with-mysql-config argument, we must respect it or fail.
   # If the user gave --with-mysql-config with no argument means we should try to find it.
   mc = Dir[GLOB].first if mc == true
-  abort "-----\nCannot find mysql_config at #{mc}\n-----" unless mc && File.exists?(mc)
+  abort "-----\nCannot find mysql_config at #{mc}\n-----" unless mc && File.exist?(mc)
   abort "-----\nCannot execute mysql_config at #{mc}\n-----" unless File.executable?(mc)
   warn  "-----\nUsing mysql_config at #{mc}\n-----"
   ver = `#{mc} --version`.chomp.to_f
